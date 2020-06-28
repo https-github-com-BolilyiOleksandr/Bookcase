@@ -1,14 +1,5 @@
 use Bookcase;
 
--- drop table Countries;
--- drop table Languages;
--- drop table Genres;
--- drop table Ratings;
--- drop table Publishers;
--- drop table Authors;
--- drop table Books;
--- drop table AuthorsBooks;
-
 create table Countries
 (
     ID int identity(1, 1) primary key not null,
@@ -49,7 +40,7 @@ create table Authors
     ID int identity(1, 1) primary key not null,
     LastName nvarchar(50) not null,
     FirstName nvarchar(50) not null,
-    MiddleName nvarchar(50),
+    MiddleName nvarchar(50) default '',
     Active bit not null default 1,
     CountryID int not null,
 
@@ -62,7 +53,7 @@ create table Books
     ISBN nvarchar(50) not null,
     Title nvarchar(max) not null,
     NumberOfPages int not null,
-    Comment nvarchar(100),
+    Comment nvarchar(100) default '',
     Active bit not null default 1,
     PublisherID int not null,
     LanguageID int not null,
