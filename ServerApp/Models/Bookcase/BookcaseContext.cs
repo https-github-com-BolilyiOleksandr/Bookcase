@@ -10,8 +10,7 @@ namespace ServerApp.Models.Bookcase
         {
         }
 
-        public BookcaseContext(DbContextOptions<BookcaseContext> options)
-            : base(options)
+        public BookcaseContext(DbContextOptions<BookcaseContext> options) : base(options)
         {
         }
 
@@ -24,13 +23,13 @@ namespace ServerApp.Models.Bookcase
         public virtual DbSet<Publishers> Publishers { get; set; }
         public virtual DbSet<Ratings> Ratings { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=Bookcase;User ID=sa;Password=LlvljehaLDA1");
-            }
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlServer("Server=localhost;Database=Bookcase;User ID=sa;Password=LlvljehaLDA1");
+        //    }
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
